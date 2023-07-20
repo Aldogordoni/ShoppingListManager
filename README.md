@@ -1,0 +1,1 @@
+# NoMuda_ShoppingListManager
