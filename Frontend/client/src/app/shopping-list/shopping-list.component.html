@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Shopping List</h1>
+      <div class="input-group mb-3">
+        <input type="text" [(ngModel)]="newItem" class="form-control" placeholder="Item name" aria-label="Item name">
+        <input type="number" [(ngModel)]="quantity" class="form-control" placeholder="Quantity" aria-label="Quantity" min="1">
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" (click)="addItemWithQuantity()">Add Item</button>
+        </div>
+      </div>
+	  <h2>To Buy</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{item.name}} x{{item.amount}} <span *ngIf="item.isImportant">(Important)</span></h5>
+            <small>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteItem(item.id)">Delete</button>
+              <button class="btn btn-sm btn-outline-info" (click)="markAsImportant(item.id)">Mark as Important</button>
+              <button class="btn btn-sm btn-outline-success" (click)="moveToBought(item.id)">Move to Bought</button>
+            </small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2>Previously Bought</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of boughtItems">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{item.name}} x{{item.amount}}</h5>
+            <small>
+              <button class="btn btn-sm btn-outline-primary" (click)="addToBuy(item)">Add to Buy</button>
+            </small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

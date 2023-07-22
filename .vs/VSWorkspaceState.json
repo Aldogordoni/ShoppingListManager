@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Business",
+    "\\Frontend",
+    "\\Frontend\\Properties",
+    "\\Repositories",
+    "\\Services",
+    "\\Services\\Services",
+    "\\ShoppingListApi",
+    "\\ShoppingListApi\\ShoppingListApi"
+  ],
+  "SelectedNode": "\\ShoppingListApi\\ShoppingListApi\\ShoppingListApi.csproj",
+  "PreviewInSolutionExplorer": false
+}
