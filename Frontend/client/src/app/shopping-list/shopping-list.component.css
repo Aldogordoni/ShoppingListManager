@@ -3,7 +3,7 @@ body {
 }
   
 .container {
-  max-width: 800px;
+  max-width: 1400px;
   margin: auto;
   padding-top: 30px;
 }
@@ -17,7 +17,7 @@ h1, h2 {
 }
   
 .scrollable-list {
-  height: 400px; /* Adjust as necessary */
+  height: 500px; 
   overflow-y: auto;
 }
   
