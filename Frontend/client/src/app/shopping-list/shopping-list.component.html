@@ -9,29 +9,33 @@
           <button class="btn btn-outline-primary" type="button" (click)="addItemWithQuantity()">Add Item</button>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 p-3">
 	  <h2>To Buy</h2>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of items">
+      <ul class="list-group scrollable-list">
+        <li class="list-group-item" *ngFor="let item of items; let i = index">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{item.name}} x{{item.amount}} <span *ngIf="item.isImportant">(Important)</span></h5>
             <small>
-              <button class="btn btn-sm btn-outline-danger" (click)="deleteItem(item.id)">Delete</button>
-              <button class="btn btn-sm btn-outline-info" (click)="markAsImportant(item.id)">Mark as Important</button>
-              <button class="btn btn-sm btn-outline-success" (click)="moveToBought(item.id)">Move to Bought</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteItem(item.name)">Delete</button>
+              <button class="btn btn-sm btn-outline-info" (click)="markAsImportant(item.name)">Toggle Important</button>
+              <button class="btn btn-sm btn-outline-success" (click)="moveToBought(item.name)">Move to Bought</button>
+              <button class="btn btn-sm btn-outline-success" *ngIf="(i !== 0 && items[i-1]?.isImportant == item.isImportant)"(click)="moveUp(item.name)">Up</button>
+              <button class="btn btn-sm btn-outline-success" *ngIf="(i !== items.length - 1 && items[i+1]?.isImportant == item.isImportant)" (click)="moveDown(item.order)">Down</button>
             </small>
           </div>
         </li>
       </ul>
     </div>
-  </div>
 
-  <div class="row mt-5">
-    <div class="col-12">
+    <div class="col-6 p-3">
       <h2>Previously Bought</h2>
-      <ul class="list-group">
+      <ul class="list-group scrollable-list">
         <li class="list-group-item" *ngFor="let item of boughtItems">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{item.name}} x{{item.amount}}</h5>
+            <h5 class="mb-1">{{item.name}}</h5>
             <small>
               <button class="btn btn-sm btn-outline-primary" (click)="addToBuy(item)">Add to Buy</button>
             </small>
