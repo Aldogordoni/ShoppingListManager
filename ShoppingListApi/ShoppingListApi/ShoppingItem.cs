@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShoppingListApi
 {
+    //ShoppingItem Class using "Name" as key, assumign each name will be unique
     public class ShoppingItem
     {
         [Key]
